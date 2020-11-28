@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My first Bulma website</title>
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+      html, body{
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      .fullscreen{
+        width: 100vw;
+        height: 100vh;
+      }
+      section.sec1-img{
+          position: fixed;
+          top: 0;
+          left: 0;
+          padding: 0;
+          z-index: -11;
+      }
+
+      .sec1-img .bg-img{
+          position: relative;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background-image: url('img/sec1-bg.jpg');
+          background-position: center;
+          background-size: cover;
+      }
+
+      .bg-img img{
+          position: absolute;
+          transform-origin: center;
+          /* top: -25%; */
+          /* left: -25%; */
+          transform: translate(0%, -25%);
+          width: 100%;
+      }
+      .w-100{
+        width: 100vw !important;
+      }
+      .h-100{
+        height: 100vh !important;
+      }
+      .bsizing-initial{
+        box-sizing: initial;
+      }
+      .swiper-container {
+          width: 80%;
+          height: 300px;
+      }
+      .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      }
+      .bottom-slider-container{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .bottom-slider-container .swiper-slide{
+        background-color: transparent;
+      }
+      
+    </style>
+  </head>
+  <body class="">
+    <section class="hero">
+      <div class="hero-head">
+        <nav class="navbar is-transparent is-fixed-top">
+          <div class="container">
+            <div class="navbar-brand">
+              <div class="navbar-logo">
+                <a class="title m-0">
+                  PADAM
+                </a>
+                <h3 class="">
+                  moulds the future
+                </h3>
+              </div>
+              <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+            <div id="navbarMenuHeroA" class="navbar-menu">
+              <div class="navbar-end">
+                <span class="navbar-item">
+                  <a class="">
+                    <span>CONTACTS</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <!-- main body -->
+    <section class="section sec1-img fullscreen">
+      <div class="bg-img">
+        <!-- <img src="img/sec1-bg.jpg" alt="" srcset=""> -->
+      </div>
+    </section>
+    <section class="hero is-fullheight">
+      <div class="container h-100 bsizing-initial">
+        <div class="columns h-100">
+          <div class="column px-6 py-0 is-flex is-justify-content-center is-flex-direction-column is-one-third has-background-white h-100">
+            <h1 class="is-uppercase mb-2"><span class="title has-text-weight-bold">Lorem Ipsum</span><br><span class="subtitle">Vestibulum rutrum</span></h1> 
+            
+            <p class="is-uppercase mb-4">
+              creating inspirational work,<br/>
+              retail and commercial spaces
+            </p>
+
+            <p>Maecenas vestibulum mollis diam. Etiam ut purus mattis mauris sodales aliquam. Nam adipiscing. 
+              Sed cursus turpis vitae tortor. Nullam sagittis. Suspendisse non nisl sit amet velit hendrerit rutrum. 
+              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+              Maecenas malesuada. Nulla consequat massa quis enim. Nam quam nunc, blandit vel, luctus pulvinar,
+              hendrerit id, lorem.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="hero is-fullheight py-6">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter has-text-centered py-6">
+          <h1 class="title">Google Office</h1>
+          <p>Etiam feugiat lorem non metus. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. 
+            Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna.</p>
+        </div>
+      </div>
+    </section>
+    <section class="hero is-fullheight py-6">
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+        </div>
+        <!-- If we need pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+      </div>
+
+      <div class="container has-text-centered">
+        <div class="columns">
+          <div class="column is-half is-offset-one-quarter">
+            <p class="">Maecenas vestibulum mollis diam. Etiam ut purus mattis mauris sodales aliquam. Nam adipiscing. 
+              Sed cursus turpis vitae tortor. Nullam sagittis. Suspendisse non nisl sit amet velit hendrerit rutrum. 
+              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+              Maecenas malesuada. Nulla consequat massa quis enim. Nam quam nunc, blandit vel, luctus pulvinar,
+              hendrerit id, lorem.</p>
+            <a href="#" class="button">Load More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-fullheight py-6">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8 is-offset-2">
+            <div class="bottom-slider-container">
+
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide">
+                    <h1 class="title">"Maecenas vestibulum mollis diam"</h1>
+                    <figure class="image">
+                      <img src="img/sec1-bg.jpg">
+                    </figure>
+                  </div>
+                  <div class="swiper-slide">
+                    <h1 class="title">"Maecenas vestibulum mollis diam"</h1>
+                    <figure class="image">
+                      <img src="img/sec1-bg.jpg">
+                    </figure>
+                  </div>
+                  <div class="swiper-slide">
+                    <h1 class="title">"Maecenas vestibulum mollis diam"</h1>
+                    <figure class="image">
+                      <img src="img/sec1-bg.jpg">
+                    </figure>
+                  </div>
+                  <div class="swiper-slide">
+                    <h1 class="title">"Maecenas vestibulum mollis diam"</h1>
+                    <figure class="image">
+                      <img src="img/sec1-bg.jpg">
+                    </figure>
+                  </div>
+              </div>
+            </div> <!-- bottom slider container end -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="lib/main.js"></script>
+    <script>
+      var mySwiper = new Swiper('.swiper-container', {
+        // Optional parameters
+        // direction: 'vertical',
+        loop: true,
+        slidesPerView: 3,
+        spaceBetween: 30,
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      })
+
+      var sliderContainer = new Swiper('.bottom-slider-container')
+    </script>
+  </body>
+</html>
