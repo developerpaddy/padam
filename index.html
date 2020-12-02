@@ -69,11 +69,11 @@
       }
       .bottom-slider-container{
         width: 100%;
-        height: 85%;
+        height: 95%;
         overflow: hidden;
       }
       .bottom-slider-container .swiper-slide{
-        background-color: transparent;
+        background-color: #fff;
       }
       .center-line{
         position: fixed;
@@ -310,12 +310,36 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                <div class="swiper-slide">Slide 4</div>
-                <div class="swiper-slide">Slide 5</div>
-                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">
+                  <figure class="image is-square">
+                    <img src="img/slides/pexels-atbo-245240.jpg">
+                  </figure>
+                </div>
+                <div class="swiper-slide">
+                  <figure class="image is-square">
+                    <img src="img/slides/pexels-cadeau-maestro-1170412.jpg">
+                  </figure>
+                </div>
+                <div class="swiper-slide">
+                  <figure class="image is-square">
+                    <img src="img/slides/pexels-cowomen-2041629.jpg">
+                  </figure>
+                </div>
+                <div class="swiper-slide">
+                  <figure class="image is-square">
+                    <img src="img/slides/pexels-marc-mueller-380768.jpg">
+                  </figure>
+                </div>
+                <div class="swiper-slide">
+                  <figure class="image is-square">
+                    <img src="img/slides/pexels-pew-nguyen-244134.jpg">
+                  </figure>
+                </div>
+                <div class="swiper-slide">
+                  <figure class="image is-square">
+                    <img src="img/slides/pexels-proxyclick-visitor-management-system-2451616.jpg">
+                  </figure>
+                </div>
             </div>
             <!-- If we need pagination -->
             <!-- <div class="swiper-pagination"></div> -->
@@ -350,29 +374,28 @@
 
               <!-- Additional required wrapper -->
               <div class="swiper-wrapper">
-                  <!-- Slides -->
                   <div class="swiper-slide">
                     <h1 class="title">"Maecenas vestibulum mollis diam"</h1>
                     <figure class="image">
-                      <img src="img/sec1-bg.jpg">
+                      <img src="img/slides/pexels-atbo-245240.jpg">
                     </figure>
                   </div>
                   <div class="swiper-slide">
-                    <h1 class="title">"Maecenas vestibulum mollis diam"</h1>
+                    <h1 class="title">"Etiam ut purus mattis mauris sodales aliquam"</h1>
                     <figure class="image">
-                      <img src="img/sec1-bg.jpg">
+                      <img src="img/slides/pexels-cadeau-maestro-1170412.jpg">
                     </figure>
                   </div>
                   <div class="swiper-slide">
-                    <h1 class="title">"Maecenas vestibulum mollis diam"</h1>
+                    <h1 class="title">"Nullam sagittis. Suspendisse non nisl"</h1>
                     <figure class="image">
-                      <img src="img/sec1-bg.jpg">
+                      <img src="img/slides/pexels-cowomen-2041629.jpg">
                     </figure>
                   </div>
                   <div class="swiper-slide">
-                    <h1 class="title">"Maecenas vestibulum mollis diam"</h1>
+                    <h1 class="title">"Nam quam nunc, blandit vel, luctus pulvinar"</h1>
                     <figure class="image">
-                      <img src="img/sec1-bg.jpg">
+                      <img src="img/slides/pexels-marc-mueller-380768.jpg">
                     </figure>
                   </div>
               </div>
@@ -420,7 +443,15 @@
         },
       })
 
-      var sliderContainer = new Swiper('.bottom-slider-container')
+      var sliderContainer = new Swiper('.bottom-slider-container', {
+        spaceBetween: 30,
+        centeredSlides: true,
+        effect: 'fade',
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+      })
     </script>
   </body>
 </html>
