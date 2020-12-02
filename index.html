@@ -98,6 +98,66 @@
       /* section{
         border-top: 1px solid red;
       } */
+      .dimond{
+        width: 7px;
+        height: 7px;
+        background-color: #444;
+        transform: rotateZ(130deg);
+      }
+      .vertLine{
+        width: 2px;
+        background-color: #444;
+        height: 65vh;
+      }
+      .progressBar{
+        height: 70%;
+        /* width: 10%; */
+        position: fixed;
+        left: calc( 3% + 12px);
+        top: 50%;
+        transform: translateY(-50%);
+        transform-origin: center;
+      }
+      .humberger{
+        position: fixed;
+        height: 50px;
+        width: 50px;
+        left: 3%;
+        bottom: 3%;
+        border: 1px solid #444;
+        padding: 8px;
+        line-height: 0;
+      }
+      #slideNavigation{
+        position: fixed;
+        bottom: 10%;
+        height: 10vh;
+        right: 50px;
+      }
+      .navigationRightBottom .bottom,
+      .navigationRightBottom .top{
+        cursor: pointer;
+      }
+      .navigationRightBottom .vertLine{
+        height: 50px;
+      }
+      .navigationRightBottom .dimond{
+        width: 10px;
+        height: 10px;
+      }
+      .navigationRightBottom .bottom{
+        transform: rotateZ(180deg);
+        margin-right: 20px;
+        margin-top: 45px;
+      }
+      .alignDimondsLine{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .dimondChecks .dimond {
+          margin: 2px 2px;
+      }
     </style>
   </head>
   <body class="">
@@ -144,6 +204,58 @@
     <div class="columns center-line">
       <div class="column px-0">
         <div class="line"></div>
+      </div>
+    </div>
+
+
+    <div class="columns progressBar">
+      <div class="column is-1">
+        <div class="alignDimondsLine">
+          <div class="dimond"></div>
+          <div class="vertLine"></div>
+          <div class="dimond"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns humberger">
+      <div class="cloumn is-1">
+        <div class="alignDimondsLine">
+          <div class="dimondChecks active">
+            <div class="is-flex">
+              <div class="dimond"></div>
+              <div class="dimond"></div>
+              <div class="dimond"></div>
+            </div>
+            <div class="is-flex">
+              <div class="dimond"></div>
+              <div class="dimond"></div>
+              <div class="dimond"></div>
+            </div>
+            <div class="is-flex">
+              <div class="dimond"></div>
+              <div class="dimond"></div>
+              <div class="dimond"></div>
+            </div>
+          </div>
+          <div class="dimondCross"></div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div id="slideNavigation" class="columns">
+      <div class="column is-1">
+        <div class="navigationRightBottom is-flex is-justify-content-center">
+          <div class="bottom alignDimondsLine">
+            <div class="dimond"></div>
+            <div class="vertLine"></div>
+          </div>
+          <div class="top alignDimondsLine">
+            <div class="dimond"></div>
+            <div class="vertLine"></div>
+          </div>
+        </div>
       </div>
     </div>
 
