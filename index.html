@@ -36,9 +36,10 @@
           width: 100%;
           height: 100%;
           overflow: hidden;
-          background-image: url('img/sec1-bg.jpg');
+          background-image: url('img/slides/pexels-marc-mueller-380768.jpg');
           background-position: center;
           background-size: cover;
+          opacity: 0.7;
       }
 
       .bg-img img{
@@ -118,6 +119,9 @@
         transform: translateY(-50%);
         transform-origin: center;
       }
+      .progressBar .vertLine{
+        width: 1px;
+      }
       .humberger{
         position: fixed;
         height: 50px;
@@ -125,18 +129,34 @@
         left: 3%;
         bottom: 3%;
         border: 1px solid #444;
-        padding: 8px;
+        padding: 2px;
         line-height: 0;
+        z-index: 1;
+      }
+      .humberger-icon{
+        display: none;
+      }
+      .humberger-icon.active{
+        display: block;
+      }
+      .humberger-icon rect {
+          fill: #444 !important;
+      }
+      .slide-menu-active .humberger-icon rect {
+          fill: #fff !important;
       }
       #slideNavigation{
         position: fixed;
         bottom: 10%;
-        height: 10vh;
-        right: 50px;
+        right: 0;
+        width: 10%;
       }
       .navigationRightBottom .bottom,
       .navigationRightBottom .top{
         cursor: pointer;
+      }
+      .navigationRightBottom .top{
+        margin-left: 20px;
       }
       .navigationRightBottom .vertLine{
         height: 50px;
@@ -147,7 +167,6 @@
       }
       .navigationRightBottom .bottom{
         transform: rotateZ(180deg);
-        margin-right: 20px;
         margin-top: 45px;
       }
       .alignDimondsLine{
@@ -158,12 +177,139 @@
       .dimondChecks .dimond {
           margin: 2px 2px;
       }
+      .slide-menu{
+        height: 100%;
+        position: fixed;
+        width: 100vw;
+        z-index: 1;
+        /* display: none; */
+        left: -100%;
+      }
+      /* .slide-menu-active .slide-menu{
+        display: block;
+      } */
+      .slide-menu .menu{
+        padding: 25vh 0vw;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .slide-menu .has-color-white{
+        background-color: #fff;
+      }
+      .slide-menu .has-menu{
+        background-color: #444;
+        width: 90%;
+        position: relative;
+      }
+      .red-block:after {
+        content: "";
+        width: 2%;
+        background: #e4524b;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .menu .menu-link a {
+          font-size: 1.3rem;
+          color: #fff;
+      }
+      .menu-item {
+          padding-left: 10vw;
+          position: relative;
+      }
+      .menu-item.active::before {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 8vw;
+          height: 3px;
+          background-color:#e4524b;
+      }
+      .slide-menu-active .progressBar,
+      .slide-menu-active .humberger,
+      .slide-menu-active #slideNavigation
+      {
+        z-index: 1;
+      }
+      .slide-menu-active .progressBar .vertLine,
+      .slide-menu-active .progressBar .dimond,
+      .slide-menu-active .humberger .dimond{
+        background-color: #fff;
+      }
+      .slide-menu-active .humberger{
+        border: 1px solid #fff;
+      }
+      .slide-menu-active .navbar-logo a, 
+      .slide-menu-active .navbar-logo{
+        color: #fff;
+      } 
+      .slide-menu-active .navbar-menu{
+        display: none;
+      }
+      .navbar-item{
+        position: relative;
+      }
+      .navbar-item a{
+        color: #000;
+      }
+      .navbar-item a::before{
+        content: "";
+        width: 70%;
+        height: 2px;
+        background-color: #444;
+        position: absolute;
+        right: 0;
+        top: 12px;
+      }
+      .navbar-item a::after{
+        content: "";
+        width: 70%;
+        height: 2px;
+        background-color: #444;
+        position: absolute;
+        left: 0;
+        bottom: 12px;
+      }
+      .button{
+        border-color: #444;
+        border-radius: 0;
+        margin-top: 10px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .button::before{
+        content: "";
+        width: 1.5rem;
+        height: 2px;
+        background-color: #444;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      .button::after{
+        content: "";
+        width: 1.5rem;
+        height: 2px;
+        background-color: #444;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
     </style>
   </head>
   <body class="">
     <section class="hero has-navbar-fixed-top">
       <div class="hero-head">
-        <nav class="navbar is-transparent is-fixed-top">
+        <nav class="navbar is-transparent is-fixed-top py-2">
           <div class="container">
             <div class="navbar-brand">
               <div class="navbar-logo">
@@ -174,11 +320,6 @@
                   moulds the future
                 </h3>
               </div>
-              <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
             </div>
             <div id="navbarMenuHeroA" class="navbar-menu">
               <div class="navbar-end">
@@ -194,19 +335,45 @@
       </div>
     </section>
 
-    <!-- main body -->
-    <section id="imgSec" class="section sec1-img fullscreen">
-      <div class="bg-img">
-        <!-- <img src="img/sec1-bg.jpg" alt="" srcset=""> -->
-      </div>
-    </section>
-
     <div class="columns center-line">
       <div class="column px-0">
         <div class="line"></div>
       </div>
     </div>
 
+    <div class="slide-menu">
+      <div class="columns py-0 m-0 h-100">
+        <div class="has-menu inactive is-uppercase py-0 my-0 red-block">
+          <div class="menu">
+            <div class="menu-item active">
+              <div class="menu-link"><a href="">Home</a></div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-link"><a href="">About Us</a></div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-link"><a href="">Services</a></div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-link"><a href="">Portfolio</a></div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-link"><a href="">Clients</a></div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-link"><a href="">Blog</a></div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-link"><a href="">Gallery</a></div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-link"><a href="">Contact Us</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="column has-color-white is-rest"></div>
+      </div>
+    </div>
 
     <div class="columns progressBar">
       <div class="column is-1">
@@ -218,192 +385,190 @@
       </div>
     </div>
 
-    <div class="columns humberger">
-      <div class="cloumn is-1">
-        <div class="alignDimondsLine">
-          <div class="dimondChecks active">
-            <div class="is-flex">
-              <div class="dimond"></div>
-              <div class="dimond"></div>
-              <div class="dimond"></div>
-            </div>
-            <div class="is-flex">
-              <div class="dimond"></div>
-              <div class="dimond"></div>
-              <div class="dimond"></div>
-            </div>
-            <div class="is-flex">
-              <div class="dimond"></div>
-              <div class="dimond"></div>
-              <div class="dimond"></div>
-            </div>
+    <div id="humberger" class="columns humberger">
+        <div class="column p-0">
+          <div class="dimondChecks humberger-icon">
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:none;}</style></defs><title>humberger-checks</title><rect class="cls-1" x="18" y="18" width="24" height="24" transform="translate(-12.43 30) rotate(-45)"/><rect class="cls-1" x="52" y="18" width="24" height="24" transform="translate(-2.47 54.04) rotate(-45)"/><rect class="cls-1" x="86" y="18" width="24" height="24" transform="translate(7.49 78.08) rotate(-45)"/><rect class="cls-1" x="18" y="52" width="24" height="24" transform="translate(-36.47 39.96) rotate(-45)"/><rect class="cls-1" x="52" y="52" width="24" height="24" transform="translate(-26.51 64) rotate(-45)"/><rect class="cls-1" x="86" y="52" width="24" height="24" transform="translate(-16.55 88.04) rotate(-45)"/><rect class="cls-1" x="18" y="86" width="24" height="24" transform="translate(-60.51 49.92) rotate(-45)"/><rect class="cls-1" x="52" y="86" width="24" height="24" transform="translate(-50.55 73.96) rotate(-45)"/><rect class="cls-1" x="86" y="86" width="24" height="24" transform="translate(-40.59 98) rotate(-45)"/></svg>
           </div>
-          <div class="dimondCross"></div>
+          <div class="dimondCross humberger-icon">
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><title>humberger-cross</title><rect x="18.59" y="18.59" width="22.16" height="22.16" transform="translate(29.67 -12.29) rotate(45)" style="fill:#1a1a1a"/><rect x="35.75" y="35.75" width="22.16" height="22.16" transform="translate(46.84 -19.4) rotate(45)" style="fill:#1a1a1a"/><rect x="52.92" y="52.92" width="22.16" height="22.16" transform="translate(64 -26.51) rotate(45)" style="fill:#1a1a1a"/><rect x="70.08" y="70.08" width="22.16" height="22.16" transform="translate(81.16 -33.62) rotate(45)" style="fill:#1a1a1a"/><rect x="87.25" y="87.25" width="22.16" height="22.16" transform="translate(98.33 -40.73) rotate(45)" style="fill:#1a1a1a"/><rect x="87.25" y="18.59" width="22.16" height="22.16" transform="translate(188.84 -18.88) rotate(135)" style="fill:#1a1a1a"/><rect x="70.08" y="35.75" width="22.16" height="22.16" transform="translate(171.67 22.56) rotate(135)" style="fill:#1a1a1a"/><rect x="52.92" y="52.92" width="22.16" height="22.16" transform="translate(154.51 64) rotate(135)" style="fill:#1a1a1a"/><rect x="35.75" y="70.08" width="22.16" height="22.16" transform="translate(137.35 105.44) rotate(135)" style="fill:#1a1a1a"/><rect x="18.59" y="87.25" width="22.16" height="22.16" transform="translate(120.18 146.88) rotate(135)" style="fill:#1a1a1a"/></svg>
+          </div>
         </div>
-      </div>
     </div>
     
-
-    <div id="slideNavigation" class="columns">
-      <div class="column is-1">
-        <div class="navigationRightBottom is-flex is-justify-content-center">
-          <div class="bottom alignDimondsLine">
-            <div class="dimond"></div>
-            <div class="vertLine"></div>
-          </div>
-          <div class="top alignDimondsLine">
-            <div class="dimond"></div>
-            <div class="vertLine"></div>
+    <div id="slideNavigation">
+      <div class="columns px-0 mx-0">
+        <div class="column is-12 px-0 mx-0">
+          <div class="navigationRightBottom is-flex is-justify-content-center">
+            <div class="bottom alignDimondsLine">
+              <div class="dimond"></div>
+              <div class="vertLine"></div>
+            </div>
+            <div class="top alignDimondsLine">
+              <div class="dimond"></div>
+              <div class="vertLine"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <section id="sec1" class="pinSec hero is-fullheight">
-      <!-- <div class="container h-100 bsizing-initial"> -->
-        <div class="columns h-100">
-          <div class="column is-flex is-10 is-offset-1 py-0 h-100">
-            <div class="columns">
-              <div id="sec1_bg_trp" class="column is-4 px-6 is-relative" style="background-color: #fff;">
-                <div id="sec1_ani">
-                  <div class="introSecTitle">
-                    <h1 class="is-uppercase mb-2"><span class="title has-text-weight-bold">Lorem Ipsum</span><br><span class="subtitle">Vestibulum rutrum</span></h1> 
-                  </div>
-                  
-                  <div class="introSecDesc">
-                    <p class="is-uppercase mb-4">
-                      creating inspirational work,<br/>
-                      retail and commercial spaces
-                    </p>
-  
-                    <p>Maecenas vestibulum mollis diam. Etiam ut purus mattis mauris sodales aliquam. Nam adipiscing. 
-                      Sed cursus turpis vitae tortor. Nullam sagittis. Suspendisse non nisl sit amet velit hendrerit rutrum. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Maecenas malesuada. Nulla consequat massa quis enim. Nam quam nunc, blandit vel, luctus pulvinar,
-                      hendrerit id, lorem.
-                    </p>
+    <!-- main body -->
+    <div class="main-body">
+      
+      <section id="imgSec" class="section sec1-img fullscreen">
+        <div class="bg-img">
+          <!-- <img src="img/sec1-bg.jpg" alt="" srcset=""> -->
+        </div>
+      </section>
+
+      <section id="sec1" class="pinSec hero is-fullheight">
+        <!-- <div class="container h-100 bsizing-initial"> -->
+          <div class="columns h-100">
+            <div class="column is-flex is-10 is-offset-1 py-0 h-100">
+              <div class="columns">
+                <div id="sec1_bg_trp" class="column is-4 px-6 is-relative" style="background-color: #fff;">
+                  <div id="sec1_ani">
+                    <div class="introSecTitle">
+                      <h1 class="is-uppercase mb-2"><span class="title has-text-weight-bold">Lorem Ipsum</span><br><span class="subtitle">Vestibulum rutrum</span></h1> 
+                    </div>
+                    
+                    <div class="introSecDesc">
+                      <p class="is-uppercase mb-4">
+                        creating inspirational work,<br/>
+                        retail and commercial spaces
+                      </p>
+    
+                      <p>Maecenas vestibulum mollis diam. Etiam ut purus mattis mauris sodales aliquam. Nam adipiscing. 
+                        Sed cursus turpis vitae tortor. Nullam sagittis. Suspendisse non nisl sit amet velit hendrerit rutrum. 
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+                        Maecenas malesuada. Nulla consequat massa quis enim. Nam quam nunc, blandit vel, luctus pulvinar,
+                        hendrerit id, lorem.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
+
             </div>
-
           </div>
-        </div>
-      <!-- </div> -->
-    </section>
-    <section id="sec2" class="pinSec hero is-fullheight py-6">
-      <div class="columns">
-        <div id="imgUpTrigger" class="column is-half is-offset-one-quarter has-text-centered py-6">
-          <h1 class="title">Google Office</h1>
-          <p>Etiam feugiat lorem non metus. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. 
-            Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="sec3" class="pinSec hero is-fullheight py-6 is-justify-content-flex-end">
-
-      <div class="columns">
-        <div class="column is-8 is-offset-2">
-          <!-- Slider main container -->
-          <div class="swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">
-                  <figure class="image is-square">
-                    <img src="img/slides/pexels-atbo-245240.jpg">
-                  </figure>
-                </div>
-                <div class="swiper-slide">
-                  <figure class="image is-square">
-                    <img src="img/slides/pexels-cadeau-maestro-1170412.jpg">
-                  </figure>
-                </div>
-                <div class="swiper-slide">
-                  <figure class="image is-square">
-                    <img src="img/slides/pexels-cowomen-2041629.jpg">
-                  </figure>
-                </div>
-                <div class="swiper-slide">
-                  <figure class="image is-square">
-                    <img src="img/slides/pexels-marc-mueller-380768.jpg">
-                  </figure>
-                </div>
-                <div class="swiper-slide">
-                  <figure class="image is-square">
-                    <img src="img/slides/pexels-pew-nguyen-244134.jpg">
-                  </figure>
-                </div>
-                <div class="swiper-slide">
-                  <figure class="image is-square">
-                    <img src="img/slides/pexels-proxyclick-visitor-management-system-2451616.jpg">
-                  </figure>
-                </div>
-            </div>
-            <!-- If we need pagination -->
-            <!-- <div class="swiper-pagination"></div> -->
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
-            <!-- If we need scrollbar -->
-            <!-- <div class="swiper-scrollbar"></div> -->
-          </div>
-        </div>
-      </div>
-
-      <div class="columns">
-        <div class="column is-half is-offset-one-quarter has-text-centered">
-          <p class="">Maecenas vestibulum mollis diam. Etiam ut purus mattis mauris sodales aliquam. Nam adipiscing. 
-            Sed cursus turpis vitae tortor. Nullam sagittis. Suspendisse non nisl sit amet velit hendrerit rutrum. 
-            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-            Maecenas malesuada. Nulla consequat massa quis enim. Nam quam nunc, blandit vel, luctus pulvinar,
-            hendrerit id, lorem.</p>
-          <a href="#" class="button">Load More</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="sec4" class="pinSec hero is-fullheight is-justify-content-flex-end pt-6 pb-0 px-0" style="overflow: hidden;">
-      <!-- <div class="container"> -->
+        <!-- </div> -->
+      </section>
+      <section id="sec2" class="pinSec hero is-fullheight py-6">
         <div class="columns">
-          <div class="column is-8 is-offset-2 py-0 pt-6 is-flex is-align-items-flex-end">
-            <div class="bottom-slider-container">
+          <div id="imgUpTrigger" class="column is-half is-offset-one-quarter has-text-centered py-6">
+            <h1 class="title">Google Office</h1>
+            <p>Etiam feugiat lorem non metus. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. 
+              Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna.</p>
+          </div>
+        </div>
+      </section>
 
+      <section id="sec3" class="pinSec hero is-fullheight py-6 is-justify-content-flex-end">
+
+        <div class="columns">
+          <div class="column is-8 is-offset-2">
+            <!-- Slider main container -->
+            <div class="swiper-container">
               <!-- Additional required wrapper -->
               <div class="swiper-wrapper">
+                  <!-- Slides -->
                   <div class="swiper-slide">
-                    <h1 class="title">"Maecenas vestibulum mollis diam"</h1>
-                    <figure class="image">
+                    <figure class="image is-square">
                       <img src="img/slides/pexels-atbo-245240.jpg">
                     </figure>
                   </div>
                   <div class="swiper-slide">
-                    <h1 class="title">"Etiam ut purus mattis mauris sodales aliquam"</h1>
-                    <figure class="image">
+                    <figure class="image is-square">
                       <img src="img/slides/pexels-cadeau-maestro-1170412.jpg">
                     </figure>
                   </div>
                   <div class="swiper-slide">
-                    <h1 class="title">"Nullam sagittis. Suspendisse non nisl"</h1>
-                    <figure class="image">
+                    <figure class="image is-square">
                       <img src="img/slides/pexels-cowomen-2041629.jpg">
                     </figure>
                   </div>
                   <div class="swiper-slide">
-                    <h1 class="title">"Nam quam nunc, blandit vel, luctus pulvinar"</h1>
-                    <figure class="image">
+                    <figure class="image is-square">
                       <img src="img/slides/pexels-marc-mueller-380768.jpg">
                     </figure>
                   </div>
+                  <div class="swiper-slide">
+                    <figure class="image is-square">
+                      <img src="img/slides/pexels-pew-nguyen-244134.jpg">
+                    </figure>
+                  </div>
+                  <div class="swiper-slide">
+                    <figure class="image is-square">
+                      <img src="img/slides/pexels-proxyclick-visitor-management-system-2451616.jpg">
+                    </figure>
+                  </div>
               </div>
-            </div> <!-- bottom slider container end -->
+              <!-- If we need pagination -->
+              <!-- <div class="swiper-pagination"></div> -->
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
+              <!-- If we need scrollbar -->
+              <!-- <div class="swiper-scrollbar"></div> -->
+            </div>
           </div>
         </div>
-      <!-- </div> -->
-    </section>
+
+        <div class="columns">
+          <div class="column is-half is-offset-one-quarter has-text-centered">
+            <p class="">Maecenas vestibulum mollis diam. Etiam ut purus mattis mauris sodales aliquam. Nam adipiscing. 
+              Sed cursus turpis vitae tortor. Nullam sagittis. Suspendisse non nisl sit amet velit hendrerit rutrum. 
+              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+              Maecenas malesuada. Nulla consequat massa quis enim. Nam quam nunc, blandit vel, luctus pulvinar,
+              hendrerit id, lorem.</p>
+            <a href="#" class="button">Load More</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="sec4" class="pinSec hero is-fullheight is-justify-content-flex-end pt-6 pb-0 px-0" style="overflow: hidden;">
+        <!-- <div class="container"> -->
+          <div class="columns">
+            <div class="column is-8 is-offset-2 py-0 pt-6 is-flex is-align-items-flex-end">
+              <div class="bottom-slider-container">
+
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <h1 class="title">"Maecenas vestibulum mollis diam"</h1>
+                      <figure class="image">
+                        <img src="img/slides/pexels-atbo-245240.jpg">
+                      </figure>
+                    </div>
+                    <div class="swiper-slide">
+                      <h1 class="title">"Etiam ut purus mattis mauris sodales aliquam"</h1>
+                      <figure class="image">
+                        <img src="img/slides/pexels-cadeau-maestro-1170412.jpg">
+                      </figure>
+                    </div>
+                    <div class="swiper-slide">
+                      <h1 class="title">"Nullam sagittis. Suspendisse non nisl"</h1>
+                      <figure class="image">
+                        <img src="img/slides/pexels-cowomen-2041629.jpg">
+                      </figure>
+                    </div>
+                    <div class="swiper-slide">
+                      <h1 class="title">"Nam quam nunc, blandit vel, luctus pulvinar"</h1>
+                      <figure class="image">
+                        <img src="img/slides/pexels-marc-mueller-380768.jpg">
+                      </figure>
+                    </div>
+                </div>
+              </div> <!-- bottom slider container end -->
+            </div>
+          </div>
+        <!-- </div> -->
+      </section>
+
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
